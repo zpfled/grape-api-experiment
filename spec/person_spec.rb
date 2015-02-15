@@ -11,4 +11,14 @@ describe Person do
     end
   end
 
+  describe '.by_gender(source_file)' do
+    it 'returns Person.all, sorted by gender and last name ascending' do
+      expect(Person.by_gender(pipe_file)[0].gender).to eq 'female'
+      expect(Person.by_gender(pipe_file)[-1].gender).to eq 'male'
+      first = Person.by_gender(pipe_file)[0].lastname
+      second = Person.by_gender(pipe_file)[1].lastname
+      expect(first < second).to be true
+    end
+  end
+
 end
