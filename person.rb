@@ -9,23 +9,23 @@ class Person
 		@birthday = attrs[:birthday]
 	end
 
-  def self.all(data_source)
-    Reader.read(data_source).map { |record| Person.new(record) }
+  def self.all
+    Reader.read.map { |record| Person.new(record) }
   end
 
-  def self.by_gender(data_source)
-    people = all(data_source)
+  def self.by_gender
+    people = all
     female = people.select { |p| p.gender == 'female' }
     male = people.select { |p| p.gender == 'male' }
     female.sort_by(&:lastname) + male.sort_by(&:lastname)
   end
 
-  def self.by_birthday(data_source)
-    all(data_source).sort_by(&:birthday)
+  def self.by_birthday
+    all.sort_by(&:birthday)
   end
 
-  def self.by_lastname(data_source)
-    all(data_source).sort_by(&:lastname).reverse
+  def self.by_lastname
+    all.sort_by(&:lastname).reverse
   end
 
 end
