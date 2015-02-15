@@ -16,7 +16,9 @@ describe Person do
       expect(Person.by_gender[-1].gender).to eq 'male'
       first = Person.by_gender[0].lastname
       second = Person.by_gender[1].lastname
+      third = Person.by_gender[2].lastname
       expect(first < second).to be true
+      expect(second < third).to be true
     end
   end
 

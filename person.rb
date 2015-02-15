@@ -14,7 +14,7 @@ class Person
   end
 
   def self.by_gender
-    people = all
+    people = self.all
     female = people.select { |p| p.gender == 'female' }
     male = people.select { |p| p.gender == 'male' }
     female.sort_by(&:lastname) + male.sort_by(&:lastname)
@@ -27,5 +27,4 @@ class Person
   def self.by_lastname
     all.sort_by(&:lastname).reverse
   end
-
 end
