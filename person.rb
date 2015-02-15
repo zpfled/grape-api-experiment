@@ -13,5 +13,11 @@ class Person
     Reader.read(data_source).map { |record| Person.new(record) }
   end
 
+  def self.by_gender(data_source)
+    people = all(data_source)
+    female = people.select { |p| p.gender == 'female' }
+    male = people.select { |p| p.gender == 'male' }
+    female.sort_by(&:lastname) + male.sort_by(&:lastname)
+  end
 
 end
