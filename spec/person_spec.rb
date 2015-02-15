@@ -29,4 +29,12 @@ describe Person do
     end
   end
 
+  describe '.by_lastname(source_file)' do
+    it 'returns Person.all, sorted by birthday in ascending order' do
+      first = Person.by_lastname(pipe_file)[0].lastname
+      second = Person.by_lastname(pipe_file)[1].lastname
+      expect(first > second).to be true
+    end
+  end
+
 end

@@ -24,4 +24,8 @@ class Person
     all(data_source).sort_by(&:birthday)
   end
 
+  def self.by_lastname(data_source)
+    all(data_source).sort_by(&:lastname).reverse
+  end
+
 end
