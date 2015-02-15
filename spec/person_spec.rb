@@ -21,4 +21,12 @@ describe Person do
     end
   end
 
+  describe '.by_birthday(source_file)' do
+    it 'returns Person.all, sorted by birthday in ascending order' do
+      first = Person.by_birthday(pipe_file)[0].birthday
+      second = Person.by_birthday(pipe_file)[1].birthday
+      expect(first < second).to be true
+    end
+  end
+
 end

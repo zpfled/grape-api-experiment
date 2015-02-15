@@ -20,4 +20,8 @@ class Person
     female.sort_by(&:lastname) + male.sort_by(&:lastname)
   end
 
+  def self.by_birthday(data_source)
+    all(data_source).sort_by(&:birthday)
+  end
+
 end
