@@ -1,9 +1,9 @@
 module Reader
 	require 'csv'
 
-	def self.read(path)
+	def self.read
 		output = []
-		CSV.foreach(path) do |row|
+		CSV.foreach(DATA_PATH) do |row|
 			output << format_data(parse_row(row))
 		end
 		output

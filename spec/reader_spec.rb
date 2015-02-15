@@ -14,10 +14,8 @@ describe Reader do
 
 	describe '#read' do
 		it 'returns an array of hashes from a CSV file' do
-			file_path = './csv/pipe.csv'
-			expect(Reader.read(file_path).length).to eq 10
-			expect(Reader.read(file_path)).to be_a Array
-			expect(Reader.read(file_path)[0]).to be_a Hash
+			expect(Reader.read).to be_a Array
+			expect(Reader.read[0]).to be_a Hash
 		end
 	end
 
