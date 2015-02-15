@@ -20,8 +20,10 @@ class Person
     female.sort_by(&:lastname) + male.sort_by(&:lastname)
   end
 
-  def self.by_birthday
-    all.sort_by(&:birthday)
+  def self.by_birthdate
+    all.sort_by do |person|
+      "#{person.birthday[-4..-1]}#{person.birthday[0..1]}#{person.birthday[-7..-6]}".to_i
+    end
   end
 
   def self.by_lastname

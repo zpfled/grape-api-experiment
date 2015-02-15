@@ -22,10 +22,12 @@ describe Person do
     end
   end
 
-  describe '.by_birthday' do
+  describe '.by_birthdate' do
     it 'returns Person.all, sorted by birthday in ascending order' do
-      first = Person.by_birthday[0].birthday
-      second = Person.by_birthday[1].birthday
+      first = Person.by_birthdate[0].birthday
+      second = Person.by_birthdate[1].birthday
+      first = "#{first[-4..-1]}#{first[0..1]}#{first[-7..-6]}".to_i
+      second = "#{second[-4..-1]}#{second[0..1]}#{second[-7..-6]}".to_i
       expect(first < second).to be true
     end
   end
