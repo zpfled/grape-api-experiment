@@ -10,7 +10,21 @@ module PersonView
       bday = person.birthday
       view += "\n#{name} (#{gender}) was born on #{bday}, and loves #{color}."
     end
-    return view
+    puts "#{view}\n\n\n\n"
+    return
+  end
+
+  def self.get_input
+    puts "Please select an option by entering the corresponding {command}:"
+    puts "1. show all people, sorted by {gender} and last name ascending"
+    puts "2. show all people, {birthdate} ascending"
+    puts "3. show all people, sorted by {lastname} descending"
+    puts "4. {exit} the program"
+    input = gets.chomp
+    exit if input == 'exit'
+    return input if ['gender', 'birthdate', 'lastname'].include?(input)
+    puts 'Please enter a valid command...'
+    get_input
   end
 
 end
