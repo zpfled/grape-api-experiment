@@ -8,11 +8,11 @@ class PeopleController
   end
 
   def execute
-    unless command
-      command = PersonView.get_input
+    unless self.command
+      self.command = PersonView.get_input
     end
-    p "command, ", "by_#{command}"
-    self.send("by_#{command}".to_sym)
+    method = command
+    self.send("by_#{method}".to_sym)
   end
 
   def by_gender
@@ -31,7 +31,7 @@ class PeopleController
   end
 
   def reset
-    command = nil
+    self.command = nil
     execute
   end
 end
