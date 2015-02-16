@@ -10,8 +10,8 @@ module PersonView
       bday = person.birthday
       view += "\n#{name} (#{gender}) was born on #{bday}, and loves #{color}."
     end
-    puts "#{view}\n\n\n\n"
-    return
+    puts view
+    view
   end
 
   def self.get_input
