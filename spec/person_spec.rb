@@ -1,5 +1,4 @@
 require_relative '../config.rb'
-system 'clear'
 
 describe Person do
 

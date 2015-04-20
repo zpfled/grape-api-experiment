@@ -14,4 +14,24 @@ describe PersonView  do
       expect(PersonView.render(people_data)).to eq output_string
     end
   end
+
+  describe '.get_input' do
+    it 'does something' do
+      # this works...need to come back and finish these tests
+      PersonView.stub(:gets) { "gender" }
+    end
+  end
+
+  # def self.get_input
+  #   puts "Please select an option by entering the corresponding {command}:"
+  #   puts "1. show all people, sorted by {gender} and last name ascending"
+  #   puts "2. show all people, {birthdate} ascending"
+  #   puts "3. show all people, sorted by {lastname} descending"
+  #   puts "4. {exit} the program"
+  #   input = gets.chomp
+  #   exit if input == 'exit'
+  #   return input if ['gender', 'birthdate', 'lastname'].include?(input)
+  #   puts 'Please enter a valid command...'
+  #   get_input
+  # end
 end
