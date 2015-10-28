@@ -1,6 +1,6 @@
-require_relative '../config.rb'
+require_relative '../../config.rb'
 
-describe PersonView  do
+describe View  do
   describe '.render(people_data)' do
     it 'pretty-prints all the people passed to it' do
       people_data = [
@@ -11,14 +11,14 @@ describe PersonView  do
       "\nLori Rosenbaum (female) was born on 01-11-1974, and loves yellow." +
       "\nRussel Kohler (male) was born on 01-13-1952, and loves green."
 
-      expect(PersonView.render(people_data)).to eq output_string
+      expect(View.render(people_data)).to eq output_string
     end
   end
 
   describe '.get_input' do
     it 'does something' do
       # this works...need to come back and finish these tests
-      PersonView.stub(:gets) { "gender" }
+      View.stub(:gets) { "gender" }
     end
   end
 

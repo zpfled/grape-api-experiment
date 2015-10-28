@@ -1,4 +1,4 @@
-require_relative '../config.rb'
+require_relative '../../config.rb'
 
 describe Person do
 
