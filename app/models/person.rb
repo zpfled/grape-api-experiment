@@ -1,3 +1,5 @@
+require 'json'
+
 class Person
 	attr_accessor	:lastname, :firstname, :gender, :favorite_color, :birthday
 
@@ -28,5 +30,15 @@ class Person
 
   def self.by_lastname
     all.sort_by(&:lastname).reverse
+  end
+
+  def serialize
+    {
+      birthday: birthday,
+      favorite_color: favorite_color,
+      firstname: firstname,
+      gender: gender,
+      lastname: lastname
+    }.to_json
   end
 end

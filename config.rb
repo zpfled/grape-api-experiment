@@ -4,9 +4,10 @@ DATA_PATH = './csv/person_records.csv'
 # Require files
 require './seed'
 require './reader'
-require './person'
-require './person_view'
-require './people_controller'
+require './app/models/person'
+require './app/views/command_line_view'
+require './app/controllers/people_controller'
+require './app/controllers/api/people_controller'
 
 # Require Ruby modules
 require 'csv'

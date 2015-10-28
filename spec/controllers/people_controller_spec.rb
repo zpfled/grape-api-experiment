@@ -1,31 +1,31 @@
-require_relative '../config.rb'
+require_relative '../../config.rb'
 
 describe PeopleController do
   let(:controller) { PeopleController.new }
 
   describe '#by_gender' do
-    it 'renders PersonView with Person.by_gender' do
+    it 'renders View with Person.by_gender' do
       Person.stub(:by_gender) { 'the right stuff' }
       controller.stub(:reset) { true }
-      expect(PersonView).to receive(:render).with('the right stuff')
+      expect(View).to receive(:render).with('the right stuff')
       controller.by_gender
     end
   end
 
   describe '#by_birthdate' do
-    it 'renders PersonView with Person.by_birthdate' do
+    it 'renders View with Person.by_birthdate' do
       Person.stub(:by_birthdate) { 'the right stuff' }
       controller.stub(:reset) { true }
-      expect(PersonView).to receive(:render).with('the right stuff')
+      expect(View).to receive(:render).with('the right stuff')
       controller.by_birthdate
     end
   end
 
   describe '#by_lastname' do
-    it 'renders PersonView with Person.by_lastname' do
+    it 'renders View with Person.by_lastname' do
       Person.stub(:by_lastname) { 'the right stuff' }
       controller.stub(:reset) { true }
-      expect(PersonView).to receive(:render).with('the right stuff')
+      expect(View).to receive(:render).with('the right stuff')
       controller.by_lastname
     end
   end
@@ -50,9 +50,9 @@ describe PeopleController do
 
   describe '#execute' do
     context '#command is nil' do
-      it 'calls PersonView#get_input' do
+      it 'calls View#get_input' do
         get_input = 'not called'
-        PersonView.stub(:get_input) { get_input = 'called' }
+        View.stub(:get_input) { get_input = 'called' }
         controller.stub(:by_called) { true }
         controller.command = nil
         expect(get_input).to eq 'not called'
@@ -62,9 +62,9 @@ describe PeopleController do
     end
 
     context '#command is not nil' do
-      it 'does not call PersonView#get_input' do
+      it 'does not call View#get_input' do
         get_input = 'not called'
-        PersonView.stub(:get_input) { get_input = 'called' }
+        View.stub(:get_input) { get_input = 'called' }
         controller.stub(:by_something) { true }
         controller.command = 'something'
         controller.execute
