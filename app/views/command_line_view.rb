@@ -6,7 +6,7 @@ module View
       name = "#{person.firstname} #{person.lastname}"
       gender = person.gender
       color = person.favorite_color
-      bday = person.birthday
+      bday = person.birthdate
       view += "\n#{name} (#{gender}) was born on #{bday}, and loves #{color}."
     end
     puts view
