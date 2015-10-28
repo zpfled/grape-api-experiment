@@ -15,7 +15,7 @@ module Reader
 			firstname: data[1],
 			gender: data[2],
 			favorite_color: data[3],
-			birthday: data[4]
+			birthdate: data[4]
 		}
 	end
 

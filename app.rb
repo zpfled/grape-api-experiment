@@ -1,4 +1,3 @@
-require_relative 'config'
-
+# Terminal App
 app = PeopleController.new(ARGV[0])
 app.execute

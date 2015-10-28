@@ -1,17 +1,16 @@
-module PersonView
-
+module View
   def self.render(people_data)
-    system 'clear'
+    # system 'clear'
     view = "\n\nHere is the data you asked for:\n"
     people_data.each do |person|
       name = "#{person.firstname} #{person.lastname}"
       gender = person.gender
       color = person.favorite_color
-      bday = person.birthday
+      bday = person.birthdate
       view += "\n#{name} (#{gender}) was born on #{bday}, and loves #{color}."
     end
-    puts "#{view}\n\n\n\n"
-    return
+    puts view
+    view
   end
 
   def self.get_input
@@ -26,5 +25,4 @@ module PersonView
     puts 'Please enter a valid command...'
     get_input
   end
-
 end
