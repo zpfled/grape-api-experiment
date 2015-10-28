@@ -1,18 +1,37 @@
+require 'csv'
 require 'json'
+require_relative '../../config'
 
 class Person
-	attr_accessor	:lastname, :firstname, :gender, :favorite_color, :birthday
+  attr_accessor :lastname, :firstname, :gender, :favorite_color, :birthdate
 
+  # Instance Methods
   def initialize(attrs)
-		@lastname = attrs[:lastname]
-		@firstname = attrs[:firstname]
-		@gender = attrs[:gender]
-		@favorite_color = attrs[:favorite_color]
-		@birthday = attrs[:birthday]
-	end
+    @lastname = attrs[:lastname]
+    @firstname = attrs[:firstname]
+    @gender = attrs[:gender]
+    @favorite_color = attrs[:favorite_color]
+    @birthdate = attrs[:birthdate]
+  end
 
+  def serialize
+    {
+      birthdate: birthdate,
+      favorite_color: favorite_color,
+      firstname: firstname,
+      gender: gender,
+      lastname: lastname
+    }
+  end
+
+  # Class Methods
   def self.all
     Reader.read.map { |record| Person.new(record) }
+  end
+
+  def self.create(person_data)
+    CSV.open(DATA_PATH, "a+") { |csv| csv << format_csv_row(person_data) }
+    return Person.new(person_data)
   end
 
   def self.by_gender
@@ -24,7 +43,7 @@ class Person
 
   def self.by_birthdate
     all.sort_by do |person|
-      "#{person.birthday[-4..-1]}#{person.birthday[0..1]}#{person.birthday[-7..-6]}".to_i
+      "#{person.birthdate[-4..-1]}#{person.birthdate[0..1]}#{person.birthdate[-7..-6]}".to_i
     end
   end
 
@@ -32,13 +51,14 @@ class Person
     all.sort_by(&:lastname).reverse
   end
 
-  def serialize
-    {
-      birthday: birthday,
-      favorite_color: favorite_color,
-      firstname: firstname,
-      gender: gender,
-      lastname: lastname
-    }.to_json
+private
+
+  def self.format_csv_row(data)
+    birthdate = data[:birthdate]
+    favorite_color = data[:favorite_color]
+    firstname = data[:firstname]
+    gender = data[:gender]
+    lastname = data[:lastname]
+    return ["#{lastname}, #{firstname}, #{gender}, #{favorite_color}, #{birthdate}"]
   end
 end

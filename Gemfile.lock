@@ -42,6 +42,8 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -72,6 +74,7 @@ PLATFORMS
 DEPENDENCIES
   faker
   grape
+  rack-test
   rspec
   shotgun
 
